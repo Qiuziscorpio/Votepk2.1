@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  user-scalable=no" name="viewport">
+<meta name="format-detection" content="telephone=no" />
+<title>pk大战</title>
+
+<!--渲染样式表-->
+<link rel="stylesheet" href="css/Config.css" />
+<!--图标样式表-->
+<link rel="stylesheet" href="css/icn/iconfont.css" />
+
+<style type="text/css">
+.pk-role {
+	padding-top: 3.8rem;
+}
+
+.pk-rolebox {
+	display: flex;
+	justify-content: center;
+	margin: 1.5rem 0;
+}
+
+
+.pk-role-head {
+	justify-content: center;
+}
+
+.pk-role－logo {
+	position: relative;
+	z-index: 99;
+	width: 10rem;
+	height: 10rem;
+	border-radius: 50%;
+}
+
+.pk-role-head.blue .pk-role－logo {
+	border: 0.25rem solid #56cbff;
+}
+
+.pk-role-head.red .pk-role－logo {
+	border: 0.25rem solid #ff5da6;
+}
+
+.pk-role－logo img {
+	position: relative;
+	z-index: 99;
+	border-radius: 50%;
+	max-width: 100%;
+}
+
+.pk-role-head .trigon {
+	width: 6rem;
+	height: 6rem;
+	bottom: -0.26rem;
+	z-index: 9;
+	position: absolute;
+}
+
+.pk-role-head.blue .trigon {
+	right: -0.25rem;
+	background: #56cbff;
+}
+
+.pk-role-head.blue .btn span {
+	display: block;
+	padding-left: 2.5rem;
+}
+
+.pk-role-head.red .btn span {
+	display: block;
+	padding-left: 0.75rem;
+}
+
+.pk-role-head.red .trigon {
+	left: -0.125rem;
+	background: #ff5da6;
+}
+
+
+.pk-role-head .btn{
+	position: absolute;
+	z-index: 999;
+	bottom: 0;
+	top: 7.6rem;
+	left: 0.65rem;
+	width: 8.85rem;
+	line-height: 2.5rem;
+	height: 2.45rem;
+	border-radius: 0 0 25rem 25rem;
+	font-size: 1.4rem;
+	color: #fff;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;	
+}
+
+
+.pk-role-head.blue .btn {
+	background-image: url(img/bluebg.png);
+}
+
+.pk-role-head.red .btn {
+	background-image: url(img/redbg.png);
+}
+
+.pk-text {
+	display: flex;
+	align-self: center;
+	margin: 0 1rem;
+}
+
+header {
+	position: fixed;
+	z-index: 9999;
+	left: 0;
+	right: 0;
+	width: 100%;
+	background: rgba(266, 255, 255, 0.8);
+}
+
+.heade img {
+	width: 4.25rem;
+	max-width: 100%;
+}
+
+.heade {
+	padding: 1rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.heade .icon-guanbi {
+	vertical-align: middle;
+	font-size: 1.5rem;
+	color: #9f9f9f;
+}
+
+.pklist .title {
+	font-size: 1.3rem;
+	text-align: center;
+	padding: 1rem 0;
+	background: #f4f4f4;
+	border-bottom: 1px solid #e2e1e1;
+}
+
+.pklist－sporting h2 {
+	font-weight: normal;
+	text-align: center;
+	font-size: 1.5rem;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-image: -moz-linear-gradient(left, #56cbff, #ff5da6);
+	/*Mozilla*/
+	background-image: -webkit-gradient(linear, 50% 50%, 50% 50%, from(#56cbff),
+		to(#ff5da6));
+	/*Old gradient for webkit*/
+	background-image: -webkit-linear-gradient(left, #56cbff, #ff5da6);
+	/*new gradient for Webkit*/
+	background-image: -o-linear-gradient(left, #56cbff, #ff5da6);
+	/*Opera11*/
+}
+
+.pklist－past h2 {
+	font-weight: normal;
+	text-align: center;
+	font-size: 1.5rem;
+	/*Opera11*/
+}
+
+.text-red {
+	color: #ff5da6;
+}
+
+.pklist－past .pk-role-head.red .btn, .pklist－past .pk-role-head.blue .btn
+	{
+	background-image: url(img/overbg.png);
+}
+
+.pklist－past .pk-role-head.blue .trigon, .pklist－past .pk-role-head.red .trigon
+	{
+	background: #9f9f9f;
+}
+
+.pklist－past .pk-role-head.blue .pk-role－logo, .pklist－past .pk-role-head.red .pk-role－logo
+	{
+	border-color: #9f9f9f;
+}
+</style>
+</head>
+<body class="bg">
+	<!--开始-->
+	<section class="">
+		<header>
+			<div class="heade">
+				<img src="img/logo.png" /> <a href="/"><i class="icon iconfont icon-guanbi"></i></a>
+			</div>
+		</header>
+		<!--pk人物-->
+		<div class="pk-role">
+			<div class="pklist">
+				<!--赛事预告-->
+				<div class="pklist－sporting">
+					<h2>赛事预告</h2>
+					<div class="pk-rolebox">
+						<!--头像 蓝方-->
+						<div class="pk-role-head blue">
+							<div class="pk-role－logo">
+								<img src="img/B.png">
+								<div class="trigon"></div>
+								<div class="btn">
+									<span>为Ta而战</span>
+								</div>
+							</div>
+						</div>
+						<div class="pk-text">
+							<img src="img/pkimg.png" style="width: 3.4rem;height: 2.75rem;">
+						</div>
+						<!--头像 蓝方-->
+						<div class="pk-role-head red">
+							<div class="pk-role－logo">
+								<img src="img/B.png">
+								<div class="trigon"></div>
+								<div class="btn">
+									<span>为Ta而战</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="title">今年女神睡贾静雯！</div>
+				</div>
+				<!--往期回顾-->
+				<div class="pklist－past">
+					<h2>往期回顾</h2>
+					<div class="pk-rolebox">
+						<!--头像 蓝方-->
+						<div class="pk-role-head blue">
+							<div class="pk-role－logo">
+								<img src="img/B.png">
+								<div class="trigon"></div>
+								<div class="btn">
+									<span>为Ta而战</span>
+								</div>
+							</div>
+						</div>
+						<div class="pk-text">
+							<img src="img/over.png" style="width: 3.4rem;height: 2.75rem;">
+						</div>
+
+						<!--头像 蓝方-->
+						<div class="pk-role-head red">
+							<div class="pk-role－logo">
+								<img src="img/B.png">
+								<div class="trigon"></div>
+								<div class="btn">
+									<span>为Ta而战</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="title">
+						共<span class="text-red">123488789</span> 名网友参战，<span class="text-red">刘亦菲</span>粉丝团暂居上风
+					</div>
+				</div>
+				<div class="pklist－past">
+					<div class="pk-rolebox">
+						<!--头像 蓝方-->
+						<div class="pk-role-head blue">
+							<div class="pk-role－logo">
+								<img src="img/B.png">
+								<div class="trigon"></div>
+								<div class="btn">
+									<span>为Ta而战</span>
+								</div>
+							</div>
+						</div>
+						<div class="pk-text">
+							<img src="img/over.png" style="width: 3.4rem;height: 2.75rem;">
+						</div>
+
+						<!--头像 蓝方-->
+						<div class="pk-role-head red">
+							<div class="pk-role－logo">
+								<img src="img/B.png">
+								<div class="trigon"></div>
+								<div class="btn">
+									<span>为Ta而战</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="title">
+						共<span class="text-red">123488789</span> 名网友参战，<span class="text-red">刘亦菲</span>粉丝团暂居上风
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+</body>
+</html>

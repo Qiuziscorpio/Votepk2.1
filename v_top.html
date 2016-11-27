@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="format-detection" content="telephone=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<title>${title!}</title>
+<link rel="stylesheet" href="css/Config.css" />
+<link rel="stylesheet" href="css/icn/iconfont.css" />
+<style type="text/css">
+html {
+	-webkit-overflow-scrolling: touch;
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	margin: 0;
+	height: 100%;
+	-webkit-overflow-scrolling: touch;
+}
+
+.pk-bg {
+	width: 100%;
+	height: 100vh;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	background-image: url(img/pkbg.png);
+}
+
+.pk {
+	display: box;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-flex-flow: column;
+	flex-flow: column;
+	height: 100%;
+	-webkit-flex-direction: column;
+	flex-direction: column;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+.pk-role {
+	position: fixed;
+	z-index: 9999;
+	top: 3rem;
+	left: 0;
+	right: 0;
+}
+
+.pk-rolebox {
+	display: flex;
+	justify-content: center;
+}
+
+.pk-chat {
+	-webkit-overflow-scrolling: touch;
+	overflow-y: scroll;
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	flex: 1;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	padding: 0 1.75rem;
+}
+
+.pk-nav {
+	display: flex;
+	justify-content: space-between;
+	padding: 0.9rem 1.7rem;
+	border-top: 0.1rem solid #fff;
+}
+
+.nav-more, .nav-chat, .nav-share {
+	color: #fff;
+}
+
+.nav-more span, .nav-share span {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 3.4rem;
+	height: 3.4rem;
+	border-radius: 50%;
+	vertical-align: middle;
+	border: 0.1rem solid #fff;
+}
+
+.nav-more span i {
+	font-size: 1.5rem;
+}
+
+.nav-share span i {
+	font-size: 1.8rem;
+}
+
+.nav-more span i:nth-child(2) {
+	margin-left: -2.5rem;
+	margin-top: 0.5rem;
+	-moz-transform: scaleX(-1);
+	-webkit-transform: scaleX(-1);
+	-o-transform: scaleX(-1);
+	transform: scaleX(-1);
+	/*IE*/
+	filter: FlipH;
+}
+
+.nav-share span i:nth-child(2) {
+	margin-left: -2.5rem;
+}
+
+.nav-chat {
+	display: flex;
+	flex-wrap: nowrap
+}
+
+.nav-chat span {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 5.7rem;
+	height: 3.4rem;
+	font-size: 1.2rem;
+	border-color: #fff;
+	border-style: solid;
+	border-width: 0.1rem;
+}
+
+.nav-chat-evaluate {
+	border-right-width: 0;
+	border-top-left-radius: 2.5rem;
+	border-bottom-left-radius: 2.5rem;
+}
+
+.nav-chat-props {
+	border-left-width: 0;
+	border-left-style: none;
+	border-top-right-radius: 2.5rem;
+	border-bottom-right-radius: 2.5rem;
+}
+
+.pk-role-head {
+	justify-content: center;
+}
+
+.pk-role-logo {
+	position: relative;
+	z-index: 99;
+	width: 10rem;
+	height: 10rem;
+	border-radius: 50%;
+}
+
+.pk-role-head.blue .pk-role-logo {
+	border: 0.25rem solid #56cbff;
+}
+
+.pk-role-head.red .pk-role-logo {
+	border: 0.25rem solid #ff5da6;
+}
+
+.pk-role-logo img {
+	position: relative;
+	z-index: 99;
+	border-radius: 50%;
+	max-width: 100%;
+}
+
+.pk-role-logo .before {
+	content: "";
+	border-radius: 50%;
+	background: rgba(0, 0, 0, 0.45);
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 999;
+	width: 100%;
+	height: 100%;
+}
+
+.pk-role-progress {
+	position: relative;
+	font-size: 0.8rem;
+	color: #fff;
+	width: 10.25rem;
+	text-align: center;
+	margin-top: 1rem;
+}
+
+.pk-role-progress h2 {
+	margin: 0;
+}
+
+.progress-bar {
+	border-radius: 3rem;
+	position: relative;
+	height: 0.6rem;
+	background: #FFF;
+	width: 100%;
+	border: 0.1rem #bfbfbf solid;
+}
+
+.pk-role-head .progress-bar .progress-bar-rate {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	border-radius: 3rem;
+	height: 0.6rem;
+	width: 60%;
+}
+
+.pk-role-head.blue .progress-bar .progress-bar-rate {
+	background: #50a2c5;
+}
+
+.pk-role-head.red .progress-bar .progress-bar-rate {
+	background: #ff5da6;
+}
+
+.pk-role-head .trigon {
+	width: 6rem;
+	height: 6rem;
+	bottom: -0.26rem;
+	z-index: 9;
+	position: absolute;
+}
+
+.pk-role-head.blue .trigon {
+	right: -0.25rem;
+	background: #56cbff;
+}
+
+.pk-role-head.blue .btn span {
+	display: block;
+	padding-left: 2.5rem;
+}
+
+.pk-role-head.red .btn span {
+	display: block;
+	padding-left: 0.75rem;
+}
+
+.pk-role-head.red .trigon {
+	left: -0.125rem;
+	background: #ff5da6;
+}
+
+.pk-role-head .btn{
+	position: absolute;
+	z-index: 999;
+	bottom: 0;
+	top: 7.6rem;
+	left: 0.65rem;
+	width: 8.85rem;
+	line-height: 2.5rem;
+	height: 2.45rem;
+	border-radius: 0 0 25rem 25rem;
+	font-size: 1.4rem;
+	color: #fff;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;	
+}
+
+
+.pk-role-head.blue .btn {
+	background-image: url(img/bluebg.png);
+}
+
+.pk-role-head.red .btn {
+	background-image: url(img/redbg.png);
+}
+
+.pk-text {
+	display: flex;
+	flex-direction: column-reverse;
+	margin: 0 1rem;
+}
+
+.pk-role-head .state {
+	position: absolute;
+	z-index: 99999;
+	right: -0.5rem;
+	top: -1.35rem;
+	width: 4.3rem;
+	height: 4.3rem;
+	
+	background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url(img/redjrzj.png);
+}
+
+.chat-list {
+	display: flex;
+	align-items: flex-start;
+	margin-top: 1.25rem;
+}
+
+.chat-list .textbox {
+	flex: 1;
+}
+
+.chat-list .textbox .text {
+	color: rgba(255, 255, 255, 0.8);
+	position: relative;
+	border-radius: 0.5rem;
+	padding: 0.8rem;
+	font-size: 1.3rem;
+	width: intrinsic;
+}
+
+.chat-list .zan {
+	position: absolute;
+	top: -2.5rem;
+	left: 50%;
+	font-size: 2rem;
+}
+
+.chat-list.red .zan {
+	color: rgba(188, 67, 108, 0.6);
+}
+
+.chat-list.red .textbox .text {
+	float: right;
+	background: rgba(188, 67, 108, 0.6);
+}
+
+.chat-list.blue .textbox .text {
+	float: left;
+	background: rgba(80, 162, 197, 0.6);
+}
+
+.chat-list .textbox .text:before {
+	content: '';
+	top: 1.1rem;
+	position: absolute;
+	width: 0;
+	height: 0;
+	border-top: 0.5rem solid transparent;
+	border-bottom: 0.5rem solid transparent;
+}
+
+.chat-list.red .textbox {
+	text-align: right;
+	float: right;
+	padding-right: 0.75rem;
+}
+
+.chat-list.blue .textbox {
+	float: left;
+	padding-left: 0.75rem;
+}
+
+.chat-list.blue .textbox .text:before {
+	left: -0.475rem;
+	border-right: 0.5rem solid rgba(80, 162, 197, 0.6);
+}
+
+.chat-list.red .textbox .text:before {
+	right: -0.475rem;
+	border-left: 0.5rem solid rgba(188, 67, 108, 0.6);
+}
+
+.chat-list .textbox .name {
+	color: rgba(255, 255, 255, 0.8);
+	padding: 0;
+	margin: 0;
+	font-size: 0.8rem;
+	font-weight: normal;
+	margin-bottom: 0.5rem;
+}
+
+.chat-list.blue .textbox .name {
+	text-align: left;
+}
+
+.chat-list .portrait {
+	width: 4.3rem;
+	height: 4.3rem;
+	border-radius: 20rem;
+}
+
+.chat-list .portrait img {
+	border-radius: 50%;
+	opacity: 0.6;
+	max-width: 100%;
+	height: auto;
+	width: 100%;
+}
+
+.prompt-box-h {
+	top: 0;
+	left: 0;
+	z-index: 99999;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	display: none;
+	background: rgba(0, 0, 0, 0.5);
+}
+
+.prompt-box {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	left: 0;
+	font-size: 1.3rem;
+	z-index: 999999;
+	display: none;
+	background: #fff;
+	text-align: center;
+}
+
+.prompt-box-btn {
+	text-align: center;
+	margin: 1rem 0;
+}
+
+.prompt-box h3 {
+	padding-top: 1rem;
+	font-weight: normal;
+}
+
+.prompt-box-btn img {
+	border-radius: 50%;
+	border: 0.5rem solid #fff;
+	-moz-box-shadow: 0px 0.0625rem 0.3125rem #ccc; /* 老的 Firefox */
+	box-shadow: 0px 0.0625rem 0.4125rem #ccc;
+}
+
+.prompt-box-btn a {
+	text-align: center;
+	margin: 0 1.25rem;
+	color: #555;
+	font-size: 1rem;
+	position: relative;
+	display: inline-block;
+}
+
+.prompt-box-btn a.qq span a, .prompt-box-btn a.xl span a {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	opacity: 0;
+}
+
+.main-foot-share-times {
+	color: #ccc;
+	font-size: 1.2rem;
+	border-top: 1px solid #DCDCDC;
+	margin: 0;
+	padding: 1.5rem;
+}
+
+.text-red {
+	color: #ff5da6;
+}
+
+.evaluatebox, .propbox {
+	position: fixed;
+	bottom: 0rem;
+	display: none;
+	background: rgba(25, 23, 25, 0.98);
+	width: 100%;
+	font-size: 0.8rem;
+}
+
+.evaluatebox .evaluatebox-content {
+	padding: 0.8rem 0;
+	display: flex;
+	align-items: center;
+}
+
+.evaluatebox .evaluatebox-content textarea {
+	resize: none;
+	height: 1.6rem;
+	border: none;
+	border-radius: 0.3rem;
+	font-size: 1.3rem;
+	background: #1d1e1f;
+	padding:0.8rem;
+	margin-right: 0.8rem;
+	margin-left: 0.8rem;
+	flex: 1;
+	color: #fff;
+}
+
+.evaluatebox .evaluatebox-content textarea:-ms-input-placeholder {
+	color: #858585;
+}
+
+.evaluatebox .evaluatebox-content span {
+	flex: 0 0 12%;
+	color: #fff;
+	text-align: center;
+}
+
+.evaluatebox .evaluatebox-content span i {
+	font-size: 2.4rem;
+}
+
+.evaluatebox .evaluatebox-content span i.icon-ttpodicon {
+	font-size: 2rem;
+}
+
+.propbox i {
+	font-size: 1.8rem;
+}
+
+.propbox-guanbi {
+	padding: 1rem;
+	text-align: right;
+	color: #fff;
+}
+
+
+.propbox .propbox-content {
+	display: flex;
+}
+
+.propbox .propbox-content .propbox-list {
+	flex: 0 0 33.33%;
+	text-align: center;
+	border-right: 1px #272727 solid;
+}
+
+.propbox .propbox-content .propbox-list:nth-child(3) {
+	border-right: none;
+}
+
+.propbox .propbox-content img {
+	width: 2.8rem;
+	height:2.8rem;
+}
+
+.propbox .propbox-body {
+	display: flex;
+	color: #cccbc9;
+	flex-flow: row wrap;
+	align-content: flex-start;
+	padding: 1.5rem 0;
+	margin: 0;
+	height: 14rem;
+	overflow: scroll;
+	list-style: none;
+	border-top: 1px #272727 solid;
+	border-bottom: 1px #272727 solid;
+}
+
+.propbox .propbox-body li {
+	padding: 1.5rem 0;
+	text-align: center;
+	flex: 0 0 50%;
+}
+
+.propbox  .propbox-title {
+	padding: 0.5rem 0;
+	color: #fff;
+	font-size: 1.3rem;
+}
+
+.prompt {
+	position: absolute;
+	display: none;
+	margin-left: -250px;
+	width: 500px;
+	left: 50%;
+	bottom: 50%;
+	background: #fff;
+	font-size: 1.3rem;
+	z-index: 999999;
+	padding: 0.5rem;
+	border-radius: 0.5rem;
+	pointer-events: none
+}
+
+.main-special {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 99999999999;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+</style>
+<script type="text/javascript">
+	var theme_id = ${id!}, 
+		hasChooseIdol = <#if hasChooseIdol??>${hasChooseIdol?string('true', 'false')}<#else>false</#if>, 
+		hasLogin = <#if hasLogin??>${hasLogin?string('true', 'false')}<#else>false</#if>;
+	//alert("${(hasChooseIdol!'false')?string('none', 'block')}");
+</script>
+</head>
+<body class="container">
+
+	<!--评论需要登录-->
+	<div class="prompt-box" id="loginBox">
+		<h3 class="text-red">嗨！登录之后才能吐槽哦</h3>
+		<div>
+			<small>第三方登录</small>
+		</div>
+		<div class="prompt-box-btn">
+			<a class="qq"> <img src="img/QQ.png" width="100"> <br> QQ <span id="qqbox"></span>
+			</a> <a class="xl"> <img src="img/XL.png" width="100"> <br> 新浪 <span id="wb_connect_btn"></span>
+			</a>
+		</div>
+		<p class="main-foot-share-times" id="loginTimesBtn" onclick="popupCls()">取消</p>
+	</div>
+
+	<!--选择用户之后才能进行 评论和使用道具-->
+	<div class="prompt">嘿！请为你要支持的偶像，点击"为Ta而战"后，才能进行操作。</div>
+
+	<div class="prompt-box-h"></div>
+
+	<!--分享-->
+	<div class="prompt-box main-foot-share-box" id="shareBox">
+		<h3 class="text-red BSHARE_POP">分享 · 是我的态度</h3>
+		<div>
+			<small>分享文章</small>
+		</div>
+
+		<div class="prompt-box-btn">
+			<a onclick="javascript:bShare.share(event,'sinaminiblog',0);return false;" class=""> <img src="img/xL.png" width="60"> <br> 新浪微博 </a> 
+			<a onclick="javascript:bShare.share(event,'qzone',0);return false;" class=""> <img src="img/Qzone.png" width="60"> <br> QQ空间 </a>
+		</div>
+		<div style="border-top: 1px solid #DCDCDC;">
+			<h3 class="text-red">关于 · 我们</h3>
+			<div class="prompt-box-btn">
+				<a class=""><img src="img/qr_.png" style="width: 4.5rem;"> <br> <small>微信公众号</small></a> 
+				<a class=""><img src="img/qr_.png" style="width: 4.5rem;"> <br> <small>应用下载</small></a> 
+				<a class=""><img src="img/qr_.png" style="width: 4.5rem;"> <br> <small>合作方式</small></a>
+			</div>
+		</div>
+		<p class="main-foot-share-times" id="timesBtn">取消</p>
+	</div>
+	<div class="main-special-box" style="pointer-events: disabled; position: absolute; width: 100%; height: 100%; z-index: 99999999; display: none;">
+		<img class="main-special">
+	</div>
+
+	<!--开始-->
+	<div class="pk pk-bg">
+		<!--pk人物-->
+		<div class="pk-role">
+			<div class="pk-rolebox">
+
+				<!--头像 蓝方-->
+				<div class="pk-role-head blue">
+					<div class="pk-role-logo">
+						<div class="before"></div>
+						<img src="${blue_idol_picture!}">
+						<div class="trigon" style="display: <#if hasChooseIdol??>${hasChooseIdol?string('none', '')}<#else>''</#if>"></div>
+						<div class="btn support-idol" style="display: <#if hasChooseIdol??>${hasChooseIdol?string('none', '')}<#else>''</#if>">
+							<span>为Ta而战</span>
+						</div>
+					</div>
+					<!--血值-->
+					<div class="pk-role-progress">
+						<h2 id="blue_blood_value">
+							${blue_blood_value!'0'}<span class="symbol">+1</span>
+						</h2>
+						<div class="progress-bar">
+							<div class="progress-bar-rate blue-progress-bar-rate" style="width: ${blue_blood_value!0 / 50}%"></div>
+						</div>
+					</div>
+				</div>
+
+				<div class="pk-text">
+					<img src="img/pkimg.png" style="width: 3.65rem;height: 2.35rem;">
+				</div>
+
+				<!--头像 蓝方-->
+				<div class="pk-role-head red">
+					<div class="pk-role-logo">
+						<div class="before"></div>
+						<img src="${red_idol_picture!}"> <span class="state"></span>
+						<div class="trigon" style="display: <#if hasChooseIdol??>${hasChooseIdol?string('none', '')}<#else>''</#if>"></div>
+						<div class="btn support-idol" style="display: <#if hasChooseIdol??>${hasChooseIdol?string('none', '')}<#else>''</#if>">
+							<span>为Ta而战</span>
+						</div>
+					</div>
+					<!--血值-->
+					<div class="pk-role-progress">
+						<h2 id="red_blood_value">
+							${red_blood_value!'0'}<span class="symbol">+1</span>
+						</h2>
+						<div class="progress-bar">
+							<div class="progress-bar-rate red-progress-bar-rate" style="width: ${red_blood_value!0 / 50}%"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--聊天区域-->
+		<div class="pk-chat">
+				<div class="chat-list blue">
+					<div class="portrait">
+						<img src="img/IMG_58941_07.png">
+					</div>
+					<div class="textbox">
+						<h2 class="name">Qiuzi</h2>
+						<div class="text">
+							刘飞飞我知道刘飞飞
+						</div>
+					</div>
+				</div>
+				<div class="chat-list red">
+					<div class="textbox">
+						<h2 class="name">Qiuzi</h2>
+						<div class="text">
+							刘飞飞我知道刘飞飞
+						</div>
+					</div>
+					<div class="portrait">
+						<img src="img/IMG_58941_07.png">
+					</div>
+				</div>
+			</div>
+
+		<!--评价 道具 分享 pk列表-->
+		<div>
+			<div class="pk-nav">
+				<div class="nav-more">
+					<span id="moreClick" onclick="javascript:window.location.href='/more';"> <i class="icon iconfont icon-daofu"></i> <i class="icon iconfont icon-daofu"></i></span>
+				</div>
+				<div class="nav-chat">
+					<span class="nav-chat-evaluate" id="evaluateClick"> 评价 </span> <span class="nav-chat-props propsClick" id="propsClick"> 道具 </span>
+				</div>
+				<div class="nav-share">
+					<span id="shareClick"> <i class="icon iconfont icon-nv" style="margin-top: -0.25rem;"></i> <i class="icon iconfont icon-nv" style="margin-top: -0.5rem;"></i>
+					</span>
+				</div>
+			</div>
+
+			<!--评价弹窗-->
+			<div class="evaluatebox">
+				<div class="evaluatebox-content">
+					<textarea placeholder="说两句呗～"></textarea>
+					<span class="propsClick"><i class="icon iconfont icon-icon"></i></span> <span id="sentClick"><i class="icon iconfont icon-ttpodicon"></i></span>
+				</div>
+			</div>
+			<!--道具弹窗-->
+			<div class="propbox">
+				<div class="propbox-guanbi" id="propboxguanbiClick">
+					<span><i class="icon iconfont icon-guanbi"></i></span>
+				</div>
+				<div class="propbox-content">
+					<div class="propbox-list">
+						<ul class="propbox-body" id="up">
+							<li><img src="" data-prop-id="" data-prop-pic="" /><div>护身符 ¥989</div></li>
+							<li><img src=""><div>护身符 ¥989</div></li>
+							<li><img src=""><div>护身符 ¥989</div></li>
+							<li><img src=""><div>护身符 ¥89</div></li>
+						</ul>
+						<div class="propbox-title">
+							赞 <i class="icon iconfont icon-zan"></i>
+						</div>
+					</div>
+					<div class="propbox-list">
+						<ul class="propbox-body" id="low">
+							<li><img src=""><div>护身符 ¥989</div></li>
+							<li><img src=""><div>护身符 ¥989</div></li>
+							<li><img src=""><div>护身符 ¥989</div></li>
+							<li><img src=""><div>护身符 ¥89</div></li>
+						</ul>
+						<div class="propbox-title">
+							踩 <i class="icon iconfont icon-zan"></i>
+						</div>
+					</div>
+					<div class="propbox-list">
+						<ul class="propbox-body" id="cool">
+							<li><img src=""><div>护身符 ¥989</div></li>
+							<li><img src=""><div>护身符 ¥989</div></li>
+							<li><img src=""><div>护身符 ¥989</div></li>
+							<li><img src=""><div>护身符 ¥89</div></li>
+						</ul>
+						<div class="propbox-title">
+							炫 <i class="icon iconfont icon-xingxing"></i>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+
+</body>
+<script type="text/javascript" src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://cdn.bootcss.com/sockjs-client/1.1.1/sockjs.min.js"></script>
+<script type="text/javascript" src="http://cdn.bootcss.com/stomp.js/2.3.3/stomp.min.js?"></script>
+<script type="text/javascript" src="http://static.bshare.cn/b/buttonLite.js#uuid=6487c2e5-674f-4abb-9993-eec7e69b9a61&style=-1" charset="utf-8"></script>
+<script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="101358281" data-redirecturi="http://www.idoudou.me" charset="utf-8" data-callback="true"></script>
+
+<script type="text/javascript">
+	var propArr = [];
+	$(function() {
+		
+		$.getJSON('/theme/props', function(data) {
+			if(data) {
+				$('.propbox-body').html('');
+				console.table(data);
+				propArr = data;
+				$.each(data, function() {
+					var li = '<li data-prop-id="' + this['id'] + '" data-prop-pic="' + this['picture'] + '" onclick="propClick(this)"><img src="' + this['label'] + '"><div>' + this['name'] + ' ¥' + this['price'] + '</div></li>';
+					switch(this['type']) {
+					case 'up':
+						$('#up').append(li);
+						break;
+					case 'low':
+						$('#low').append(li);
+						break;
+					case 'cool':
+						$('#cool').append(li);
+						break;
+					}
+				});
+			}
+		});
+		/** 去掉偶像头像上的为他而战的按钮 */ 
+		if(isChooseIdol) displayChooseIdolBtn(true);
+		
+		var htmlChat = '';
+		$.getJSON('/evalute/top', function(data) {
+			console.table(data);
+			$.each(data, function() {
+				if(this['color'] == 'blue') {
+					htmlChat += '<div class="chat-list red" data-color="red" data-id="' + this['id'] + '" onclick="evaluteClick();">';
+					htmlChat += '	<div class="portrait">';
+					htmlChat += '		<img src="' + this['picture'] + '">';
+					htmlChat += '	</div>';
+					htmlChat += '	<div class="textbox">';
+					htmlChat += '		<h2 class="name">' + this['name'] + '</h2>';
+					htmlChat += '		<div class="text">' + this['content'] + '</div>';
+					htmlChat += '	</div>';
+					htmlChat += '</div>';
+				} 
+				if(this['color'] == 'red') {
+					htmlChat += '<div class="chat-list blue" data-color="blue" data-id="' + this['id'] + '" onclick="evaluteClick(this);">';
+					htmlChat += '	<div class="textbox">';
+					htmlChat += '		<h2 class="name">' + this['name'] + '</h2>';
+					htmlChat += '		<div class="text">' + this['content'] + '</div>';
+					htmlChat += '	</div>';
+					htmlChat += '	<div class="portrait">';
+					htmlChat += '		<img src="' + this['picture'] + '">';
+					htmlChat += '	</div>';
+					htmlChat += '</div>';
+				}
+			});
+			$('.pk-chat').html(htmlChat);
+		});
+		
+		connect();
+	});
+</script>
+
+<script type="text/javascript">
+	
+	function displayChooseIdolBtn(obj) {
+		if(obj) {
+			$('.pk-rolebox .trigon').css('display', 'none');
+			$('.pk-rolebox .support-idol').css('display', 'none');
+		} else {
+			$('.pk-rolebox .trigon').css('display', '');
+			$('.pk-rolebox .support-idol').css('display', '');
+		}
+	}
+	
+	function connect() {
+		var socket = new SockJS('/socket');
+		var stompClient = Stomp.over(socket);
+		stompClient.connect({}, function(frame) {
+			console.log('Connected: ' + frame);
+			
+			// 订阅血值
+			stompClient.subscribe('/sub/blood/' + theme_id, function(resp) {
+				console.log('/sub/blood/' + theme_id + ', ' + JSON.stringify(resp));
+				console.log('--> ' + resp.body);
+				flushIdolData(JSON.parse(resp.body));	
+			});
+			
+			// 订阅弹幕
+			stompClient.subscribe('/sub/evalute/' + theme_id, function(resp) {
+				console.log('/sub/evalute/' + theme_id + ', ' + JSON.stringify(resp));
+				console.log('--> ' + resp.body);
+				flushIdolData(JSON.parse(resp.body));
+			});
+			
+			// 订阅道具
+			stompClient.subscribe('/sub/prop/' + theme_id, function(resp) {
+				console.log('/sub/prop/' + theme_id + ', ' + JSON.stringify(resp));
+				console.log('--> ' + resp.body); // 返回prop_id
+				
+				var msg = JSON.parse(resp.body);
+				$.each(propArr, function() {
+					if(this['id'] == msg['prop_id']) {
+						$(".main-special-box").append("<img src='" + this['picture'] + "' class='main-special'>");
+						$(".main-special-box").show();
+						$(".main-special").animate({
+							opacity : "1"
+						}, 3500, function() {
+							$(this).animate({
+								opacity : "0"
+							}, 3500, function() {
+								$(".main-special").remove();
+								$(".main-special-box").hide();
+							});
+						});
+						return;
+					}
+				});
+				flushIdolData(JSON.parse(resp.body));
+			});
+			
+		}, function() {
+			connect();
+		});
+	}
+
+	function flushIdolData(message) {
+		// 数值变化，当前页面（用户点赞或者为ta而战，道具效果）显示 +? 数字动效果 ? ############################## 只在当前用户窗口
+		// 显示完 +N 后改变血值和血条
+		$('#blue_blood_value').text(message.blue_blood_value);
+		$('#red_blood_value').text(message.red_blood_value);
+		// 个人数字
+		// ? 血条 ####################################################
+		$('.blue-progress-bar-rate').css('width', (message.blue_blood_value / 50));
+		$('.red-progress-bar-rate').css('width', (message.red_blood_value / 50));
+	}
+	
+	var evaluteClick = function(obj) {
+		console.log($(this).text());
+		console.log($(this).attr('data-id'));
+		alert('点赞用户评论，变色，冒红心');
+		$.ajax({
+			url: '/evalute/click',
+			type: 'POST',
+			dataType: 'JSON',
+			contentType: "application/json; charset=utf-8",
+			data: {
+				'id': $(this).attr('data-id'),
+				'theme_id': theme_id
+			},
+			success: function(data) {
+				console.log(data);
+				// 冒红心操作				
+			},
+			error: function() {
+				console.log('发送失败');				
+			}
+		});
+	};
+	
+	// 追加评论
+	function showChat(message) {
+		// ######################################################
+	}
+	
+</script>
+
+<script type="text/javascript">
+
+	// 点击评论按钮, 打开评价输入框
+	$('#evaluateClick').click(function(event) {
+		popupCls();
+		// 判断是否登陆, 如果未登陆，弹出登陆框
+		if(!isLogin()) {
+			$("#loginBox").css("display", "block");
+			return;	
+		}
+		// 登录了，判断是否选择了为ta而战
+		if(!isChooseIdol()) {
+			alert('请为你要支持的偶像，点击"为Ta而战"后，才能进行操作');
+			return;
+		}
+		
+		$('.pk-bg').one('click', function(event) {
+			$(".evaluatebox").css({display:"none", bottom:"0"});
+		});
+		event.stopPropagation();
+		// 弹出评论对话框
+		// 写这里 ============================>
+		$(".evaluatebox textarea").val("");
+		$(".pk-nav").css({height:"0",padding:"0"});
+		$(".evaluatebox").css({display:"block",bottom:"0rem"});			
+		$(".evaluatebox textarea").focus();
+		// 写这里 ============================>
+		
+	});
+	
+	$(".evaluatebox textarea").blur(function(event) {
+		$(".evaluatebox").css({display:"block",bottom:"0"});	
+		event.stopPropagation();//阻止事件向上冒泡
+	});
+	
+	$(".evaluatebox textarea").click(function(event) {
+		event.stopPropagation();//阻止事件向上冒泡
+	});
+	
+	
+	// 发送评语
+	$("#sentClick").click(function(event){
+		event.stopPropagation();
+		var content = $(".evaluatebox textarea").val();
+		if(!content || $.trim(content) == '') {
+			alert('评论内容不能为空哦~');
+			return;
+		}
+		
+		$.ajax({
+			url: '/evalute/create/' + theme_id,
+			type: 'POST',
+			dataType: 'JSON',
+			data: {
+				'content': content
+			},
+			success: function(data) {
+				console.log('评论成功');
+				// 发射评论...
+			}
+			
+		});
+		$(".evaluatebox").css({display:"none",bottom:"0"});	
+		$(".pk-nav ").css({height:"auto",padding:"0.9rem 1.7rem"});
+		
+	});	
+	
+	
+	// 点击道具按钮，打开道具
+	$(".propsClick").click(function(event) {
+		event.stopPropagation();
+		popupCls();
+		$(".pk-nav").css({height:"auto",padding:"0.9rem 1.7rem"});
+		$(".propbox").css("display","block");
+		
+	});
+	
+	// 关闭道具
+	$("#propboxguanbiClick").click(function(event){
+		event.stopPropagation();
+		popupCls();
+		$(".pk-nav ").css("height","auto");
+		$(".propbox").css("display","none");				
+	});
+
+	// 为道具绑定点击事件
+	function propClick(obj) {
+		var prop_id = $(obj).attr('data-prop-id'),
+			src = $(obj).attr('data-prop-pic');
+		
+		// 发送参数至服务端
+		$.ajax({
+			url: '/theme/prop/' + theme_id,
+			type: 'POST',
+			dataType: 'JSON',
+			data: {
+				'prop_id': prop_id
+			},
+			success: function(data) {
+				popupCls();
+				if(data == -1) {
+					// 未登录
+					$("#loginBox").css("display", "block");
+					return;	
+				} else if(data == true) { // 道具发送成功
+					$('#propboxguanbiClick').click();
+				}
+			}
+		});
+	}
+	
+	// 清除隐藏所有弹出层
+	function popupCls() {
+		$("#loginBox").css("display", "none");
+		$(".prompt-box-h").css("display", "none");
+		$(".evaluatebox").css("display", "none");
+		$(".propbox").css("display", "none");
+		$(".pk-nav").css({height:"auto",padding:"0.9rem 1.7rem"});
+	}
+	
+	// 判断是否登陆 
+	function isLogin() {
+		var yesOrNo = false;
+		/**$.ajax({
+			url: '/isLogin',
+			async: false,
+			success: function(data) {
+				yesOrNo = data;
+			}
+		});*/
+		return yesOrNo = true;
+	}
+	
+	// 是否点击了为他而战
+	function isChooseIdol() {
+		var yesOrNo = false;
+		/**$.ajax({
+			url: '/theme/isChooseIdol/' + theme_id,
+			async: false,
+			success: function(data) {
+				yesOrNo = data;
+			}
+		});*/
+		return yesOrNo = true;
+	}
+	
+	// 提示用户选择支持的阵容
+	function promptShow(val){
+		if(val === "show") {
+			$(".prompt").css("display", "block");
+			$(".prompt-box-h").css("display", "block");	
+		
+		} else if (val === "hide") {
+			$(".prompt").css("display", "none");
+			$(".prompt-box-h").css("display", "none");	
+		}
+	}
+
+	$(document).on('click', function(){ 
+		popupCls(); 
+	}); 
+	
+	//分享 打开
+	$("#shareClick").click(function() {
+		$("#shareBox").css("display", "block");
+		$(".prompt-box-h").css("display", "block");
+	});
+
+	//分享 关闭
+	$("#timesBtn").click(function() {
+		$("#shareBox").css("display", "none");
+		$(".prompt-box-h").css("display", "none");
+	});
+
+</script>
+
+<script type="text/javascript">
+	QC.Login({
+		btnId : "qqbox"
+	},
+	function(resp, opts) { // 登陆Success
+		var name, picture, openid, access_token;
+		name = QC.String.escHTML(resp.nickname),
+		picture = resp.figureurl;
+		
+		if(QC.Login.check()) {
+			QC.Login.getMe(function(openId, accessToken) {
+				openid = openId;
+				access_token = accessToken;
+				// alert('name: ' + name + '\npicture: ' + picture + '\nopenid: ' + openid + '\naccess_token: ' + access_token);
+				// 后台接口
+				$.ajax({
+					url: '/login',
+					type: 'POST',
+					dataType: 'JSON',
+					contentType: 'application/json; charset=utf-8;',
+					data: JSON.stringify({
+						'name': name,
+						'picture': picture,
+						'openid': openid,
+						'access_token': access_token,
+						'channel': 'qq'
+					}),
+					success: function(data) {
+						console.log('login success');
+					}
+				});
+			});
+		}
+	});
+	
+		
+	//去掉头像遮罩层
+	function beforeRemove(id){
+		$(id).remove()
+	}
+	beforeremove(".pk-role-head.blue .pk-role-logo .before")
+	
+	//新增点赞
+	var valzan=1;
+	function addZan (id,color){
+		var zan_
+		var left = ["35%","38%","42%","45%","58%"];  
+		var leftval = Math.floor((Math.random()*left.length)); 
+		if(color=="red"){
+			$(id).append('<i id="zan_red'+valzan+'" class="icon iconfont icon-aixin zan" style="color: rgba(255, 93, 166, 0.6);left:'+left[leftval]+'"></i>' )
+			zan_=$("#zan_red"+valzan +"")
+			valzan++;
+		}else if(color=="blue"){
+			$(id).append('<i id="zan_blue'+valzan+'" class="icon iconfont icon-aixin zan" style="color: rgba(86, 203, 255, 0.6);left:'+left[leftval]+'""></i>' )
+			zan_=$("#zan_blue"+valzan +"")
+			valzan++;
+		}
+		//点赞动画效果
+	    $(zan_).animate({
+	    	  top: '-35rem',
+    		  left: left[leftval],
+	      opacity:'0.2'
+	    },3000,function(){
+	    		$(zan_).remove()
+	    });
+	}
+	
+	// 点击新增点赞
+	$(".chat-list").each(function(){
+		$(this).click(function(){
+			var _this=$(this).find(".text")
+			if($(this).hasClass("red")){
+				addZan (_this,"red")
+			}else if($(this).hasClass("blue")){
+				addZan (_this,"blue")
+			}
+		})
+	})
+</script>
+</html>
