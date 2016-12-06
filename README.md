@@ -14,3 +14,5 @@ html+css(使用rem单位，弹性盒子布局flex)  jQuery  WebSockets
 * GitHub：[https://github.com/Qiuziscorpio/Votepk2.1.git](https://github.com/Qiuziscorpio/Votepk2.1.git)
 
 ***** 
+
+### 持续更新中
